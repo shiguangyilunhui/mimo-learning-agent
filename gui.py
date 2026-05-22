@@ -688,14 +688,19 @@ class ReportPage(tk.Frame):
         legend = tk.Frame(list_header, bg=Colors.SURFACE)
         legend.pack(side="right")
         
-        tk.Canvas(legend, width=10, height=10, bg=Colors.SURFACE, 
-                  highlightthickness=0).pack(side="left")
-        legend.create_oval(1, 1, 9, 9, fill=Colors.SUCCESS, outline="")
+        # 已掌握指示器
+        strong_canvas = tk.Canvas(legend, width=10, height=10, bg=Colors.SURFACE, 
+                                  highlightthickness=0)
+        strong_canvas.pack(side="left")
+        strong_canvas.create_oval(1, 1, 9, 9, fill=Colors.SUCCESS, outline="")
         tk.Label(legend, text="已掌握", font=("Segoe UI", 9),
                  fg=Colors.TEXT_SECONDARY, bg=Colors.SURFACE).pack(side="left", padx=(4, 12))
         
-        tk.Canvas(legend, width=10, height=10, bg=Colors.SURFACE,
-                  highlightthickness=0).pack(side="left")
+        # 需加强指示器
+        weak_canvas = tk.Canvas(legend, width=10, height=10, bg=Colors.SURFACE,
+                                highlightthickness=0)
+        weak_canvas.pack(side="left")
+        weak_canvas.create_oval(1, 1, 9, 9, fill=Colors.WARNING, outline="")
         tk.Label(legend, text="需加强", font=("Segoe UI", 9),
                  fg=Colors.TEXT_SECONDARY, bg=Colors.SURFACE).pack(side="left", padx=(4, 0))
         
